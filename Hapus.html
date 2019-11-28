@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jual Beli Mobil</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
+    <button class="w3-bar-item w3-button" onclick="w3_close()">Close</button>
+    <a href="Home.html" class="w3-bar-item w3-button">Home</a>
+    <a href="Edit.html" class="w3-bar-item w3-button">Edit</a>
+    <a href="Hapus.html" class="w3-bar-item w3-button">Hapus</a>
+    <a href="Tambah.html" class="w3-bar-item w3-button">Tambah</a>
+    <a href="Stock.html" class="w3-bar-item w3-button">Stock</a>
+</div>
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div>
+    <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+    <div class="w3-container">
+        <h1>Hapus Jenis Mobil</h1>
+        <input type="text">
+        <br>
+        <br>
+        <button>Hapus</button>
+        <button>Check</button>
+    </div>
+</div>
+</body>
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jual Beli Mobil</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="CSS.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+</head>
+<body>
+<div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
+    <button class="w3-bar-item w3-button" onclick="w3_close()">close</button>
+    <a href="Home.html" class="w3-bar-item w3-button">Home</a>
+    <a href="Edit.html" class="w3-bar-item w3-button">Edit</a>
+    <a href="Hapus.html" class="w3-bar-item w3-button">Hapus</a>
+    <a href="Tambah.html" class="w3-bar-item w3-button">Tambah</a>
+    <a href="Stock.html" class="w3-bar-item w3-button">Stock</a>
+</div>
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div>
+    <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+    <div class="w3-container">
+        <h1>Stock Mobi</h1>
+        <table id="example" class="display" style="width:100%;">
+            <thead>
+            <tr>
+                <th>ID Mobil</th>
+                <th>Nama Mobil</th>
+                <th>Harga Mobil</th>
+                <th>Stock Barang</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td>Aqua</td>
+                <td>5000</td>
+                <td>1000</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Cheetos</td>
+                <td>5000</td>
+                <td>1000</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</body>
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+</html>
