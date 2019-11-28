@@ -11,6 +11,7 @@
     <script src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
     <script src=" https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js"></script>
+    <script src="Script.js"></script>
 </head>
 <body>
 <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
@@ -26,7 +27,7 @@
     <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
     <div class="w3-container">
         <h1>Kasir</h1>
-        <table id="example" class="display nowrap" style="width:100%">
+        <table id="kasir" class="display nowrap" style="width:100%">
             <thead>
             <tr>
                 <th>ID Mobil</th>
@@ -55,54 +56,5 @@
         </table>
     </div>
 </div>
-</body>
-<script>
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-    }
-
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-    }
-    $(document).ready(function() {
-        $('#example').DataTable( {
-            "footerCallback": function ( row, data, start, end, display ) {
-                var api = this.api(), data;
-
-                // Remove the formatting to get integer data for summation
-                var intVal = function ( i ) {
-                    return typeof i === 'string' ?
-                        i.replace(/[\$,]/g, '')*1 :
-                        typeof i === 'number' ?
-                            i : 0;
-                };
-
-                // Total over all pages
-                total = api
-                    .column( 2 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
-
-                // Total over this page
-                pageTotal = api
-                    .column( 2, { page: 'current'} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
-
-                // Update footer
-                $( api.column( 2 ).footer() ).html(
-                    total
-                );
-            }
-        } );
-    } );
-</script>
-</html>
 </body>
 </html>
