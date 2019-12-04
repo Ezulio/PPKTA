@@ -33,23 +33,41 @@
                 <th>ID Mobil</th>
                 <th>Merk Mobil</th>
                 <th>Harga Mobil</th>
+                <th>Jumlah Mobil</th>
+                <th>Total Harga</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>001</td>
                 <td>Aqua</td>
-                <td>5000</td>
+                <td class="price">5000</td>
+                <td class="qty">
+                    <div class="input-group">
+                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                        <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field">
+                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                    </div>
+                </td>
+                <td class="total" onchange="totalprice(this)">5000</td>
             </tr>
             <tr>
                 <td>002</td>
                 <td>Cheetos</td>
-                <td>5000</td>
+                <td class="price">5000</td>
+                <td class="qty">
+                    <div class="input-group">
+                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                        <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field">
+                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                    </div>
+                </td>
+                <td class="total" onchange="totalprice(this)">5000</td>
             </tr>
             </tbody>
             <tfoot>
             <tr>
-                <th colspan="2" style="text-align:right">Total Harga :</th>
+                <th colspan="4" style="text-align:right">Total Harga :</th>
                 <th></th>
             </tr>
             </tfoot>
@@ -58,3 +76,39 @@
 </div>
 </body>
 </html>
+<script>
+    function incrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal)) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    function decrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal) && currentVal > 0) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    $('.input-group').on('click', '.button-plus', function(e) {
+        incrementValue(e);
+    });
+
+    $('.input-group').on('click', '.button-minus', function(e) {
+        decrementValue(e);
+    });
+
+</script>
