@@ -12,37 +12,44 @@
 <body>
 <div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
     <button class="w3-bar-item w3-button" onclick="w3_close()">Close</button>
-    <a href="Index.html" class="w3-bar-item w3-button">Home</a>
+    <a href="index.html" class="w3-bar-item w3-button">Home</a>
     <a href="Edit.html" class="w3-bar-item w3-button">Edit</a>
     <a href="Hapus.html" class="w3-bar-item w3-button">Hapus</a>
     <a class="w3-bar-item w3-button" href="Tambah_Barang.html">Tambah Barang</a>
     <a href="Stock.html" class="w3-bar-item w3-button">Stock</a>
-    <a href="Tambah_Petugas.html" class="w3-bar-item w3-button">Tambah Petugas</a>
-    <a href="List_Petugas.html" class="w3-bar-item w3-button">List Petugas</a>
+    <a href="Tambah_Karyawan.html" class="w3-bar-item w3-button">Tambah Petugas</a>
+    <a href="List_Karyawan.html" class="w3-bar-item w3-button">List Petugas</a>
 </div>
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 <div>
     <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
     <div class="w3-container">
         <h1>Edit Data Mobil</h1>
-        <table>
-            <tr>
-                <th>Nama Mobil</th>
-                <th>:</th>
-                <th><input type="text"></th>
-            </tr>
-            <tr>
-                <th>Jumlah Mobil</th>
-                <th>:</th>
-                <th><input type="text"></th>
-            </tr>
-            <tr>
-                <th>Harga Mobil</th>
-                <th>:</th>
-                <th><input type="text"></th>
-            </tr>
-        </table>
-        <button onclick="">Edit</button>
+        <form action="edit.php" method="post">
+            <table>
+                <tr>
+                    <th>ID Mobil</th>
+                    <th>:</th>
+                    <th><input type="text" name="idMobil" id="idMobil"></th>
+                </tr>
+                <tr>
+                    <th>Nama Mobil</th>
+                    <th>:</th>
+                    <th><input type="text" name="namaMobil" id="namaMobil"></th>
+                </tr>
+                <tr>
+                    <th>Jumlah Mobil</th>
+                    <th>:</th>
+                    <th><input type="text" name="jumlahMobil" id="jumlahMobil"></th>
+                </tr>
+                <tr>
+                    <th>Harga Mobil</th>
+                    <th>:</th>
+                    <th><input type="text" name="hargaMobil" id="hargaMobil"></th>
+                </tr>
+            </table>
+            <input type="submit" value="Submit">
+            </form>
     </div>
 </div>
 </body>

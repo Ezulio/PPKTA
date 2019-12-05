@@ -11,10 +11,29 @@ $(document).ready(function () {
     $('#stock').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax":"getBarang.php",
+        "ajax":"http://web111048.000webhostapp.com/getBarang.php",
     } );
 });
 $(document).ready(function () {
-    $('#list').DataTable();
+    $('#kasir').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax":"http://web111048.000webhostapp.com/beli.php",
+    } );
+});
+$(document).ready(function () {
+    $('#list').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax":"http://web111048.000webhostapp.com/getKaryawan.php",
+    } );
+});
+
+$(document).ready(function () {
+    $('#history').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax":"http://web111048.000webhostapp.com/getPesanan.php",
+    } );
 });
 
