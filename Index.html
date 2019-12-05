@@ -39,30 +39,7 @@
             </thead>
             <tbody>
             <tr>
-                <td>001</td>
-                <td>Aqua</td>
-                <td class="price">5000</td>
-                <td class="qty">
-                    <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
-                    </div>
-                </td>
-                <td class="total" onchange="totalprice(this)">5000</td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Cheetos</td>
-                <td class="price">5000</td>
-                <td class="qty">
-                    <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
-                    </div>
-                </td>
-                <td class="total" onchange="totalprice(this)">5000</td>
+                <td></td>
             </tr>
             </tbody>
             <tfoot>
@@ -110,5 +87,14 @@
     $('.input-group').on('click', '.button-minus', function(e) {
         decrementValue(e);
     });
+
+    function calculate() {
+        var qty = document.getElementsByClassName("quantity-field").value;
+        var price = document.getElementsByClassName("price").value;
+        var result = document.getElementsByClassName('total');
+        var myResult = qty * price;
+        result.value = myResult;
+
+    }
 
 </script>
