@@ -1,29 +1,31 @@
-    <?php
-    // DB details
-    $dbHost = 'localhost';
-    $dbUsername = 'root';
-    $dbPassword = '';
-    $dbName = 'tugasakhirppk';
+<?php
+// DB details
+$sql_details = array(
+    'user' => 'web111048',
+    'pass' => 'projekppk',
+    'db'   => 'tugasakhirppk',
+    'host' => 'web111048'
+);
+//Create connection and select DB
+// DB table to use
+$table = 'barang';
 
-    //Create connection and select DB
-    $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+// Table's primary key
+$primaryKey = 'Barang_ID';
 
-    if ($db->connect_error) {
-        die("Unable to connect database: " . $db->connect_error);
-    }
+// Array of database columns which should be read and sent back to DataTables.
+// The `db` parameter represents the column name in the database, while the `dt`
+// parameter represents the DataTables column identifier. In this case simple
+// indexes
+$columns = array(
+    array( 'db' => 'Barang_ID', 'dt' => 0 ),
+    array( 'db' => 'Nama_Barang',  'dt' => 1 ),
+    array( 'db' => 'Stok',   'dt' => 2 ),
+    array( 'db' => 'Harga',     'dt' => 3 ),
+);
 
-
-
-    $query = "SELECT * FROM `barang`";
-    $exec = mysqli_query($db, $query);
-    $fetch = mysqli_fetch_array($exec);
-
-    $Barang_ID= $fetch["Barang_ID"];
-    $nama_barang = $fetch["Nama_Barang"];
-    $stok = $fetch["Stok"];
-    $harga = $fetch["Harga"];
-
-    $return_arr[] = array("Barang_ID" => $Barang_ID,"Nama_Barang" => $nama_barang, "Stok" => $stok, "Harga" => $harga);
-    header('Content-Type:application/json;charset=utf-8');
-    echo json_encode($return_arr);
-    ?>
+require( 'ssp.class.php' );
+echo json_encode(
+    SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
+);
+?>

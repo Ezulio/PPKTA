@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Jual Beli Mobil</title>
-    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
-    <link href="CSS.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <script src="Script.js"></script>
 </head>
 <body>
-<div class="w3-sidebar w3-bar-block w3-white w3-animate-left" id="mySidebar" style="display:none;z-index:4">
-    <button class="w3-bar-item w3-button" onclick="w3_close()">close</button>
-    <a class="w3-bar-item w3-button" href="Index.html">Home</a>
-    <a class="w3-bar-item w3-button" href="Edit.html">Edit</a>
-    <a class="w3-bar-item w3-button" href="Hapus.html">Hapus</a>
-    <a class="w3-bar-item w3-button" href="Tambah.html">Tambah</a>
-    <a class="w3-bar-item w3-button" href="Stock.html">Stock</a>
+<div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
+    <button class="w3-bar-item w3-button" onclick="w3_close()">Close</button>
+    <a href="Index.html" class="w3-bar-item w3-button">Home</a>
+    <a href="Edit.html" class="w3-bar-item w3-button">Edit</a>
+    <a href="Hapus.html" class="w3-bar-item w3-button">Hapus</a>
+    <a class="w3-bar-item w3-button" href="Tambah_Barang.html">Tambah Barang</a>
+    <a href="Stock.html" class="w3-bar-item w3-button">Stock</a>
+    <a href="Tambah_Petugas.html" class="w3-bar-item w3-button">Tambah Petugas</a>
+    <a href="List_Petugas.html" class="w3-bar-item w3-button">List Petugas</a>
 </div>
 <div class="w3-overlay w3-animate-opacity" id="myOverlay" onclick="w3_close()" style="cursor:pointer"></div>
 <div>
     <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
     <div class="w3-container">
-        <h1>Stock Mobi</h1>
+        <h1>Stock Mobil</h1>
         <table class="display" id="stock" style="width:100%;">
             <thead>
             <tr>
@@ -33,9 +34,6 @@
                 <th>Stock Barang</th>
             </tr>
             </thead>
-            <tbody>
-
-            </tbody>
         </table>
     </div>
 </div>
