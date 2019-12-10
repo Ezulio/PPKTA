@@ -19,7 +19,12 @@ $primaryKey = 'ID_karyawan';
 // indexes
 $columns = array(
     array( 'db' => 'ID_karyawan', 'dt' => 0 ),
-    array( 'db' => 'nama',  'dt' => 1 ),
+    array( 'db' => 'No_ktp', 'dt' => 1 ),
+    array( 'db' => 'nama',  'dt' => 2 ),
+    array( 'db' => 'jenis_kelamin',  'dt' => 3 ),
+    array( 'db' => 'ttl',  'dt' => 4 ),
+    array( 'db' => 'No_hp',  'dt' => 5 ),
+    array( 'db' => 'Alamat',  'dt' => 6 ),
 );
 
 require( 'ssp.class.php' );
